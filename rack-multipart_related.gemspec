@@ -2,11 +2,11 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
-require 'rack-multipart_related'
+require 'rack/multipart_related'
 
 Gem::Specification.new do |s|
   s.name        = "rack-multipart_related"
-  s.version     = RackMultipartRelated::VERSION
+  s.version     = Rack::MultipartRelated::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Lucas Fais", "Marcelo Manzan"]
   s.email       = ["lucasfais@gmail.com", "manzan@gmail.com"]
