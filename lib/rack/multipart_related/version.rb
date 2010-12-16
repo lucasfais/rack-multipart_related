@@ -1,6 +1,6 @@
 module Rack
   module MultipartRelated
-    path = File.expand_path('../..', __FILE__)
+    path = File.expand_path('../../..', __FILE__)
     v = nil
     v = $1 if path =~ /\/rack-multipart_related-([\w\.\-]+)/
     if v.nil?
@@ -12,7 +12,7 @@ module Rack
       end
     end
     if v.nil?
-      path = File.expand_path('../../../.git', __FILE__)
+      path = File.expand_path('../../../../.git', __FILE__)
       if File.exists?(path)
         require "step-up"
         v = StepUp::Driver::Git.last_version
