@@ -22,7 +22,7 @@ module Rack
       VERSION = "0.0.0"
     else
       v.sub!(/^v/, '')
-      v.sub!(/\+$/, '')
+      v.sub!(/\+\d*$/, '')
       VERSION = v
     end
   end
