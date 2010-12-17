@@ -17,6 +17,9 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "rack-multipart_related"
 
+  s.add_dependency "rack", '>= 1.0'
+  s.add_dependency "json", '>= 1.0'
+  
   s.add_development_dependency "step-up"
   s.add_development_dependency "mocha" 
 
