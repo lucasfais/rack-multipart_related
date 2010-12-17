@@ -1,5 +1,5 @@
 module Rack
-  module MultipartRelated
+  class MultipartRelated
     path = File.expand_path('../../..', __FILE__)
     v = nil
     v = $1 if path =~ /\/rack-multipart_related-([\w\.\-]+)/
