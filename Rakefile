@@ -1,3 +1,12 @@
+require 'rake/testtask'
+
+task :default => :test
+Rake::TestTask.new do |t|
+  t.libs << "test"
+  t.test_files = FileList['test/**/*_test.rb']
+  t.verbose = true
+end
+
 desc "Build the gem"
 task :build do
   opers = Dir.glob('*.gem')
@@ -15,5 +24,3 @@ task :install => :build do
     sh "gem uninstall rack-multipart_related; gem install #{ gem }"
   end
 end
-
-task :default => :spec
