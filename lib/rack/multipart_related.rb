@@ -48,7 +48,7 @@ module Rack
         part_ref = data[/^cid:(.+)$/ni, 1]
 
         if part_ref
-          data = get_attribute(original_params, part_ref)[:tempfile]
+          data = get_attribute(original_params, part_ref)
         end
       elsif data.kind_of?(Array)
         data.each_with_index do |value, index|
