@@ -11,7 +11,7 @@ module Rack
     def call(env)
       content_type = env['CONTENT_TYPE']
 
-      if content_type =~ /^multipart\/related/
+      if content_type =~ /^multipart\/related/ni
 
         start_part = content_type[/.* start=(?:"((?:\\.|[^\"])*)"|([^;\s]*))/ni, 1]
         start_part_type = content_type[/.* type=(?:"((?:\\.|[^\"])*)"|([^;\s]*))/ni, 1]
