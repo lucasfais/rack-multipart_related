@@ -51,7 +51,13 @@ class MultipartRelatedTest < Test::Unit::TestCase
     expected_request_form_hash_after_middleware = {
       "user" => {
         "name" => "Jhon", 
-        "avatar" => imagefile
+        "avatar" => {
+          :type => "image/png", 
+          :filename =>"image.png", 
+          :tempfile => imagefile, 
+          :head => "Content-Type: image/gif\r\nContent-Disposition: inline; name=\"avatar_image\"; filename=\"image.png\"\r\n", 
+          :name =>"avatar_image"
+        }
       }
     }
     
