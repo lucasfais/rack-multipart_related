@@ -48,7 +48,13 @@ Using this middleware, the hash above is parsed and rebuilt like the code below:
     {
       "user" => {
         "name" => "Jhon", 
-        "avatar" => <File:/var/folders/Iu/IuwHUNlZE8OaYMACfwiapE+++TI/-Tmp-/RackMultipart20101217-30578-bt18q9-0>, # The binary content of image
+        "avatar" => {
+          :type => "image/png", 
+          :filename =>"image.png", 
+          :tempfile => <File:/var/folders/Iu/IuwHUNlZE8OaYMACfwiapE+++TI/-Tmp-/RackMultipart20101217-30578-bt18q9-0>, # The binary content of image
+          :head => "Content-Type: image/gif\r\nContent-Disposition: inline; name=\"avatar_image\"; filename=\"image.png\"\r\n", 
+          :name =>"avatar_image"
+        }
       }
     }
     
