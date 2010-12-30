@@ -19,7 +19,10 @@ module Rack
         if start_part_type == "application/json"
 
           params = env["rack.request.form_hash"]
-          json_data = ::JSON.parse(get_attribute(params, start_part)[:tempfile].read)
+          start_part_attribute = get_attribute(params, start_part)
+          json_data = ::JSON.parse(start_part_attribute[:tempfile].read)
+          start_part_attribute[:tempfile].rewind
+          env['START_CONTENT_TYPE'] ||= start_part_attribute[:type]
 
           new_params = handle_atributtes_with_part_refs(json_data, params)
           env["rack.request.form_hash"] = new_params
