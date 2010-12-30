@@ -13,8 +13,8 @@ module Rack
 
       if content_type =~ /^multipart\/related/ni
 
-        start_part = content_type[/.* start=(?:"((?:\\.|[^\"])*)"|([^;\s]*))/ni, 1]
-        start_part_type = content_type[/.* type=(?:"((?:\\.|[^\"])*)"|([^;\s]*))/ni, 1]
+        start_part = content_type[/.* start=(?:"((?:\\.|[^\"])*)"|([^;\s]*))/ni] && ($1 || $2)
+        start_part_type = content_type[/.* type=(?:"((?:\\.|[^\"])*)"|([^;\s]*))/ni] && ($1 || $2)
 
         if start_part_type == "application/json"
 
