@@ -1,0 +1,3 @@
+capturing attributes of the Content-Type even if no quotes
+  sample 1: '...; start="json"' or '...; start=json'
+  sample 2: '...; type="application/json"' or '...; type=application/json'
