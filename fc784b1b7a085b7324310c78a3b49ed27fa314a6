@@ -1,0 +1,1 @@
+putting the start part head attribute 'Content-Type' into request.env["START_CONTENT_TYPE"]
