@@ -73,6 +73,44 @@ class MultipartRelatedTest < Test::Unit::TestCase
     assert last_response.ok?
     assert_equal last_request.env["rack.request.form_hash"], expected_request_form_hash_after_middleware
   end
+  
+  def test_multipart_related_with_json_notin_tempfile
+    request_form_hash = {
+      "json" => '{"user": {"name": "Jhon", "avatar": "cid:avatar_image"} }', 
+      "avatar_image" => {
+        :type => "image/png", 
+        :filename =>"image.png", 
+        :tempfile => imagefile, 
+        :head => "Content-Type: image/gif\r\nContent-Disposition: inline; name=\"avatar_image\"; filename=\"image.png\"\r\n", 
+        :name =>"avatar_image"
+      }
+    }
+    
+    expected_request_form_hash_after_middleware = {
+      "user" => {
+        "name" => "Jhon", 
+        "avatar" => {
+          :type => "image/png", 
+          :filename =>"image.png", 
+          :tempfile => imagefile, 
+          :head => "Content-Type: image/gif\r\nContent-Disposition: inline; name=\"avatar_image\"; filename=\"image.png\"\r\n", 
+          :name =>"avatar_image"
+        }
+      }
+    }
+
+    env = {
+      'REQUEST_METHOD' => 'POST',
+      'CONTENT_TYPE' => 'multipart/related; boundary="the_boundary"; type=application/json; start=json',
+      'PATH_INFO' => '/some/path',
+      'rack.request.form_hash' => request_form_hash
+    }
+
+    request(env['PATH_INFO'], env)
+
+    assert last_response.ok?
+    assert_equal last_request.env["rack.request.form_hash"], expected_request_form_hash_after_middleware
+  end
 
   def test_multipart_related_with_start_and_type_without_quotes
     jsonfile = make_tempfile("json", '{"user": {"name": "Jhon", "avatar": "cid:avatar_image"} }')
