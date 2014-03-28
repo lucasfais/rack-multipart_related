@@ -19,8 +19,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rack", '>= 1.0'
   s.add_dependency "json", '>= 1.0'
-  
-  s.add_development_dependency "mocha" 
+
+  s.add_development_dependency "mocha"
+  s.add_development_dependency "rack-test"
 
   excepts = %w[
     .gitignore

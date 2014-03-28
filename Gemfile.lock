@@ -1,0 +1,25 @@
+PATH
+  remote: .
+  specs:
+    rack-multipart_related (0.1.0)
+      json (>= 1.0)
+      rack (>= 1.0)
+
+GEM
+  remote: http://www.rubygems.org/
+  specs:
+    json (1.8.1)
+    metaclass (0.0.4)
+    mocha (1.0.0)
+      metaclass (~> 0.0.1)
+    rack (1.5.2)
+    rack-test (0.6.2)
+      rack (>= 1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mocha
+  rack-multipart_related!
+  rack-test
