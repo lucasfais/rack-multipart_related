@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rack-multipart_related (0.1.0)
+    rack-multipart_related (1.0.0)
       json (>= 1.0)
       rack (>= 1.0)
 
