@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rack", '>= 1.0'
   s.add_dependency "json", '>= 1.0'
   
-  s.add_development_dependency "step-up"
   s.add_development_dependency "mocha" 
 
   excepts = %w[
