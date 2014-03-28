@@ -2,7 +2,7 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
 
-require 'rack/multipart_related'
+require 'rack/multipart_related/version'
 
 Gem::Specification.new do |s|
   s.name        = "rack-multipart_related"
