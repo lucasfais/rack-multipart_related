@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
 
   excepts = %w[
     .gitignore
+    .travis.yml
     rack-multipart_related.gemspec
   ]
   tests = `git ls-files -- {test,spec,features}/*`.split("\n")
