@@ -1,3 +1,6 @@
+
+[![Build Status](http://api.travis-ci.org/lucasfais/rack-multipart_related.png)](http://api.travis-ci.org/lucasfais/rack-multipart_related)
+
 # Rack multipart/related middleware
 
 Rack::MultipartRelated it's a **rack middleware** to parse **multipart/related** requests and rebuild a simple/merged parameters hash.
